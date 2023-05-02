@@ -16,6 +16,28 @@ app.get("/availability", (request: Request, response: Response) => {
   response.send({ data: selectedMonthAvailability });
 });
 
+app.post("/createBooking", (req: Request, res: Response) => {
+  const { bookingDate, time } = req.body;
+  const requestedAvailability = availability.find(
+    (item) => item.date === bookingDate
+  );
+  if (!requestedAvailability) {
+    return res.send({ error: "Date not found" });
+  }
+  const requestedTime = requestedAvailability.slots.find(
+    (slot) => slot.time === time
+  );
+  if (!requestedTime) {
+    return res.send({ error: "Time not found" });
+  }
+  if (requestedTime.availableSlot) {
+    return res.send({ message: "No available slot" });
+  }
+  requestedTime.reserved = requestedTime.reserved + 1;
+  requestedTime.availableSlot = requestedTime.availableSlot - 1;
+  res.send(requestedTime);
+});
+
 app.listen(port, () => {
   console.log(`Example at started listening at ${port}`);
 });

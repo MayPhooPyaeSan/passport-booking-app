@@ -20,6 +20,7 @@ const UserInfo = () => {
             user: { ...data.user, name: event.target.value },
           })
         }
+        value={data.user?.name ? data.user.name : ""}
       />
       <TextField
         id="nrx_number"
@@ -33,6 +34,7 @@ const UserInfo = () => {
             user: { ...data.user, nrcNumber: event.target.value },
           })
         }
+        value={data.user?.nrcNumber ? data.user.nrcNumber : ""}
       />
       <TextField
         id="name"
@@ -46,6 +48,7 @@ const UserInfo = () => {
             user: { ...data.user, email: event.target.value },
           })
         }
+        value={data.user?.email ? data.user.email : ""}
       />
     </Box>
   );

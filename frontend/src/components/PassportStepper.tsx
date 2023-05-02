@@ -13,6 +13,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import UserInfo from "./UserInfo";
 import ConfirmAndReview from "./ConfirmAndReview";
 import { PassportAppContext } from "../contexts/PassportAppContext";
+import dayjs from "dayjs";
 
 const steps = ["Date and time", "User info", "Review and confirm"];
 
@@ -28,8 +29,16 @@ const PassportStepper = () => {
     setActiveStep(activeStep - 1);
   };
 
-  const createBooking = () => {
-    console.log("create booking");
+  const createBooking = async () => {
+    // const response = await fetch("http://localhost:5000/createBooking", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     bookingDate: dayjs(bookingDate).format("DD-MM-YYYY"),
+    //     time,
+    //     user,
+    //   }),
+    // });
   };
 
   return (

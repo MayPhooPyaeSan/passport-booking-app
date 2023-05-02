@@ -22,6 +22,9 @@ const ConfirmAndReview = () => {
         </span>
       </p>
       <p>
+        Time: <span style={{ fontWeight: "bold" }}>{time}</span>
+      </p>
+      <p>
         Name: <span style={{ fontWeight: "bold" }}>{user?.name}</span>
       </p>
       <p>
